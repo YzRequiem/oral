@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail produit{% endblock %}
+
+{% block body %}
+
+        <main class="container">
+
+        {# bouton pour revenir vers produits_list #}
+            <a href="{{ path('produits_list') }}" class=" mt-5 btn btn-primary">
+                <i class="bi bi-arrow-bar-left"></i>
+                Retour à la liste des produits
+            </a>
+
+            <h1 class="mt-5 mb-5"> Detail du {{ product.name }} </h1>
+   
+            <div class="w-75 d-flex" >
+                <img height="350px" src="/img/{{ product.image }}" class="w-50" >
+                <div class="d-flex flex-column w-50 justify-content-evenly" >
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description}}: Lorem ipsum dolor, sit amet consectetur adipisicing elit. At perspiciatis culpa temporibus, deserunt odio, dignissimos necessitatibus explicabo fugiat, enim saepe tempora porro qui! Deleniti, maxime eius!</p>
+                    <p>{{ product.price }}€</p>
+                    {# bouton pour ajouter au panier #}
+                    <a href="{{ path('app_panier_ajouter', {'id': product.id}) }}" class="btn btn-primary">
+                        <i class="bi bi-cart-plus"></i>
+                        Ajouter au panier
+                    </a>
+                </div>
+            </div>
+            
+
+          
+        </main>
+
+
+{% endblock %}

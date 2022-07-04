@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Panier {% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <div class="row my-5" >
+            <div class="col-md-12">
+                <h1>Panier</h1>
+            </div>
+            <div class="col-md-12">
+                <a href="{{ path('produits_list') }}" class="btn btn-primary">Poursuivre mes achats</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set total = 0 %}
+                    {% for produit in produits %}
+                        <tr>
+                            <td>{{ produit.name }}</td>
+                            <td>{{ produit.price }} € </td>
+                            
+                            <td >
+                                <a href="{{ path('app_panier_decrement', {'id': produit.id}) }}" class="btn btn-danger btn-sm">-</a>
+                                {{ produit.qtite }}
+                                <a href="{{ path('app_panier_increment', {'id': produit.id}) }}" class="btn btn-success btn-sm">+</a>
+                            </td>
+                            
+                            <td>{{ produit.price * produit.qtite }} € </td>
+                            <td>
+                                <a href="{{ path('app_panier_supprimer', {'id': produit.id}) }}" class="btn btn-danger">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% set total = total + (produit.price * produit.qtite) %}
+                    {% endfor %}    
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td colspan="2">{{ total }} €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <a href="{{path('app_panier_envoyer')}}" class="btn btn-primary">Valider la commande</a>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

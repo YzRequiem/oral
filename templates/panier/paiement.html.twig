@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Paiement {% endblock %}
+
+{% block body %}
+<main class="container my-5 py-5 ">
+    <div class="row d-flex align-items-center
+    justify-content-center my-5 " >
+        <h2> Cliquez sur ce bouton afin de valider le paiement</h2>
+        <a href="{{ path('app_panier_valider') }}" class="w-50 my-5 btn btn-primary">Payer</a>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rhums vieux{% endblock %}
+
+{% block body %}
+
+   <main class="container">
+
+      <a href="{{ path('produits_list') }}" class=" mt-5 btn btn-primary">
+         <i class="bi bi-arrow-bar-left"></i>
+         Retour à la liste des produits
+      </a>
+
+      <h1 class="mt-5 mb-5"> Nos rhums vieillis </h1>
+      <section class="row">
+
+         <div class=" d-flex flex-wrap justify-content-center" style="gap: 20px">
+      {% for product in products %}
+
+   
+            <div class="card" style="width: 18rem;">
+               <img height="200px" src="/img/{{ product.image }}" class="card-img-top" >
+               <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.description}}</p>
+                  <p>{{ product.price }}€</p>
+                  <a href="{{ path('produits_details', {slug: product.slug})}}" class="btn btn-primary">Voir plus</a>
+                  </div>
+            </div>
+
+
+      
+   {% endfor %}
+         </div>
+
+      </section>
+</main>
+
+{% endblock %}

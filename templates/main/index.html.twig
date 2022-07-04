@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} La cave Rhumanesque {% endblock %}
+
+{% block body %}
+
+    <main class="container">
+
+    {% if app.user %}
+    <div class="alert alert-success alert-dismissible fade show d-flex justify-content-center">
+    
+        <h1>Bonjour {{ app.user.lastName   }} {{app.user.firstName}} </h1>
+    
+    </div>
+    {% endif %}
+
+        <h1 class="my-5" > Bienvenue sur notre page d'Accueil</h1>
+        
+        <p>
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo accusantium quam ducimus, quidem deserunt a officiis neque fuga dignissimos odio enim aliquid vitae consectetur incidunt laborum quos facere assumenda unde reiciendis nihil. Doloremque, blanditiis autem, reprehenderit cum officiis fugit a nostrum dolore accusamus saepe aut dolorem dolorum atque facere quae quisquam natus, eaque adipisci cupiditate eos illum iusto dignissimos aliquid! Dolores dolorum, accusamus quasi accusantium, officia tempora quisquam voluptatem, sit natus itaque assumenda? Repudiandae accusamus mollitia ullam aperiam iste similique ex iusto asperiores fuga nesciunt labore maiores repellendus, delectus nihil modi inventore. Magni praesentium molestiae quod voluptas quibusdam, vero id!
+        </p>
+
+        <div class="d-flex justify-content-center my-5 ">
+            <img class="w-75" src="img/cave.jpg" alt="cave">
+        </div>
+        
+    </main>
+
+{% endblock %}
